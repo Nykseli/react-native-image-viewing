@@ -24,6 +24,7 @@ import StatusBarManager from "./components/StatusBarManager";
 import useAnimatedComponents from "./hooks/useAnimatedComponents";
 import useImageIndexChange from "./hooks/useImageIndexChange";
 import useRequestClose from "./hooks/useRequestClose";
+import { uniqueImageKey } from './utils';
 import { ImageSource } from "./@types";
 
 type Props = {
@@ -147,7 +148,7 @@ function ImageViewing({
           )}
           onMomentumScrollEnd={onScroll}
           //@ts-ignore
-          keyExtractor={(imageSrc) => imageSrc.uri || `${imageSrc}`}
+          keyExtractor={() => uniqueImageKey()}
         />
         {typeof FooterComponent !== "undefined" && (
           <Animated.View

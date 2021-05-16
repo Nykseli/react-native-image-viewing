@@ -177,3 +177,10 @@ export const getDistanceBetweenTouches = (
     Math.pow(a.pageX - b.pageX, 2) + Math.pow(a.pageY - b.pageY, 2)
   );
 };
+
+// Simple way to create unique keys
+let __unique_key = 0;
+export const uniqueImageKey = (): string => {
+  __unique_key++;
+  return `image-viewing-image-${__unique_key}`;
+}
